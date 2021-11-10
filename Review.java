@@ -171,6 +171,7 @@ public class Review {
   public static double totalSentiment(String filename)
   {
     // read in the file contents into a string using the textToString method with the filename
+    textToString(filename);
 
     // set up a sentimentTotal variable
     double sentimentTotal = 0;
@@ -189,6 +190,7 @@ public class Review {
     }
 
     // loop through the file contents 
+
 
        // find each word
        // add in its sentimentVal

@@ -9,8 +9,9 @@ public class main
 {
     public static void main(String[] args)
     {
-        double value = Review.sentimentVal("great");    
+        double value = Review.totalSentiment("simpleReview");    
         System.out.println(value);
+        
     }
 }
 
