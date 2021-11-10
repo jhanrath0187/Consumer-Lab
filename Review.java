@@ -166,6 +166,7 @@ public class Review {
 
 /** Activity 2: totalSentiment()
   * Write the code to total up the sentimentVals of each word in a review.
+ *BennettProffitt
  */
   public static double totalSentiment(String filename)
   {
@@ -174,6 +175,19 @@ public class Review {
 
     // set up a sentimentTotal variable
     double sentimentTotal = 0;
+    int len = filename.length();
+    int gap;
+    String word;
+    
+    while (len!=-1)
+    {
+        gap = filename.indexOf(" ");
+        word = filename.substring(0,gap);
+        filename = filename.substring(gap+1,len);
+        sentimentTotal+=sentimentVal(word);
+        
+        
+    }
 
     // loop through the file contents 
 
