@@ -9,7 +9,7 @@ public class main
 {
     public static void main(String[] args)
     {
-        double value = Review.totalSentiment("simpleReview");    
+        double value = Review.totalSentiment("simpleReview.txt");    
         System.out.println(value);
         
     }
