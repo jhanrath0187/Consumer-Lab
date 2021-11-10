@@ -182,7 +182,7 @@ public class Review {
     {
         gap = filename.indexOf(" ");
         word = filename.substring(0,gap);
-        filename = filename.substring(gap,len);
+        filename = filename.substring(gap+1,len);
         sentimentTotal+=sentimentVal(word);
         
         
