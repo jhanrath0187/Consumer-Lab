@@ -179,11 +179,12 @@ public class Review {
     int gap;
     String word;
     
-    while (len > 0)
+    while (len > 1)
     {
+        len = filename.length();
         gap = filename.indexOf("");
         word = filename.substring(0,gap);
-        filename = filename.substring(gap,len);
+        filename = filename.substring(gap+1);
         sentimentTotal+=sentimentVal(word);
         
         
