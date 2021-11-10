@@ -181,7 +181,7 @@ public class Review {
     
     while (len!=-1)
     {
-        gap = filename.indexOf(" ");
+        gap = filename.indexOf("");
         word = filename.substring(0,gap);
         filename = filename.substring(gap+1,len);
         sentimentTotal+=sentimentVal(word);
