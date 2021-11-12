@@ -213,7 +213,7 @@ public class Review {
     // call the totalSentiment method with the fileName
 
     // determine number of stars between 0 and 4 based on totalSentiment value 
-    int stars = 0; // change this!
+    int stars = 0; 
     // write if statements here
 
 
