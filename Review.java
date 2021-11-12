@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
+import java.io.IOException;
 
 /**
  * Class that contains helper methods for the Review Lab
@@ -168,7 +169,7 @@ public class Review {
   * Write the code to total up the sentimentVals of each word in a review.
  *BennettProffitt
  */
-  public static double totalSentiment(String filename)
+  public static double totalSentiment(String filename) throws IOException
   {
     // read in the file contents into a string using the textToString method with the filename
     textToString(filename);
@@ -177,16 +178,14 @@ public class Review {
     double sentimentTotal = 0;
     int len = filename.length();
     int gap;
-    String word;
+
+    Scanner reader = new Scanner(new File(filename));
     
-    while (len > 0)
+    while (reader.hasNext())
     {
-        gap = filename.indexOf("");
-        word = filename.substring(0,gap);
-        filename = filename.substring(gap,len);
-        sentimentTotal+=sentimentVal(word);
-        
-        
+        String word = reader.next();
+        double Val = sentimentVal(word);
+        sentimentTotal+=Val;
     }
 
     // loop through the file contents 
