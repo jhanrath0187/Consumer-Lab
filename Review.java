@@ -223,13 +223,17 @@ public class Review {
     {
         stars = 3;
     }
-    else if (totalSentiment(filename) >= -2)
+    else if (totalSentiment(filename) >= 0)
     {
         stars = 2;
     }
-    else if (totalSentiment(filename) >= -4)
+    else if (totalSentiment(filename) >= -2)
     {
         stars = 1;
+    }
+    else if (totalSentiment(filename) < -2)
+    {
+        stars = 0;
     }
 
 
