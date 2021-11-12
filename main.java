@@ -12,6 +12,7 @@ public class main
         double value = Review.totalSentiment("simpleReview.txt");    
         System.out.println(value);
         
+        
     }
 }
 
