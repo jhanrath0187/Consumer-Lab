@@ -181,12 +181,13 @@ public class Review {
 
     Scanner reader = new Scanner(new File(filename));
     
-
+ 
     while (reader.hasNext()){
 
         String word = reader.next();
         double Val = sentimentVal(word);
         sentimentTotal+=Val;
+
 
     }
 
@@ -196,29 +197,49 @@ public class Review {
        // find each word
        // add in its sentimentVal
        // set the file contents to start after this word
-   
-   
-
-
-
-   return sentimentTotal; 
-  }
+      return sentimentTotal; 
+}
 
 
   /** Activity 2 starRating method
      Write the starRating method here which returns the number of stars for the review based on its totalSentiment.
   */
-  public static int starRating(String filename)
+  public static int starRating(String filename) throws IOException
   {
-    // call the totalSentiment method with the fileName
+    {
+        // call the totalSentiment method with the fileName
+    totalSentiment(filename);
+    
+    
 
     // determine number of stars between 0 and 4 based on totalSentiment value 
     int stars = 0; 
     // write if statements here
+    if (totalSentiment(filename) >= 4)
+    {
+        stars = 4;
+    }
+    else if (totalSentiment(filename) >= 2)
+    {
+        stars = 3;
+    }
+    else if (totalSentiment(filename) >= 0)
+    {
+        stars = 2;
+    }
+    else if (totalSentiment(filename) >= -2)
+    {
+        stars = 1;
+    }
+    else if (totalSentiment(filename) < -2)
+    {
+        stars = 0;
+    }
 
 
   
     // return number of stars
     return stars; 
   }
+}
 }

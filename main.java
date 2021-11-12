@@ -17,8 +17,11 @@ public class main
     public static void main(String[] args) throws IOException
     {
         Review rev = new Review();
-        double value = rev.totalSentiment("simpleReview.txt");    
+        double value = rev.totalSentiment("26WestReview.txt");    
         System.out.println(value);
+        int star = rev.starRating("26WestReview.txt");
+        System.out.println(star);
+        
         
     }
 }
