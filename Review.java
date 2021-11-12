@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
+import java.io.IOException;
 
 /**
  * Class that contains helper methods for the Review Lab
@@ -168,7 +169,7 @@ public class Review {
   * Write the code to total up the sentimentVals of each word in a review.
  *BennettProffitt
  */
-  public static double totalSentiment(String filename)
+  public static double totalSentiment(String filename) throws IOException
   {
     // read in the file contents into a string using the textToString method with the filename
     textToString(filename);
@@ -177,18 +178,17 @@ public class Review {
     double sentimentTotal = 0;
     int len = filename.length();
     int gap;
-    String word;
+
+    Scanner reader = new Scanner(new File(filename));
     
-    while (len > 1)
-    {
-        len = filename.length();
-        gap = filename.indexOf("");
-        word = filename.substring(0,gap);
-        filename = filename.substring(len - filename.indexOf(gap-1));
-        sentimentTotal+=sentimentVal(word);
-        System.out.println(sentimentTotal);
-        
-        
+ 
+    while (reader.hasNext()){
+
+        String word = reader.next();
+        double Val = sentimentVal(word);
+        sentimentTotal+=Val;
+
+
     }
 
     // loop through the file contents 
@@ -197,29 +197,45 @@ public class Review {
        // find each word
        // add in its sentimentVal
        // set the file contents to start after this word
-   
-   
-
-
-
-   return sentimentTotal; 
-  }
+      return sentimentTotal; 
+}
 
 
   /** Activity 2 starRating method
      Write the starRating method here which returns the number of stars for the review based on its totalSentiment.
   */
-  public static int starRating(String filename)
+  public static int starRating(String filename) throws IOException
   {
-    // call the totalSentiment method with the fileName
+    {
+        // call the totalSentiment method with the fileName
+    totalSentiment(filename);
+    
+    
 
     // determine number of stars between 0 and 4 based on totalSentiment value 
     int stars = 0; // change this!
     // write if statements here
+    if (totalSentiment(filename) >= 4)
+    {
+        stars = 4;
+    }
+    else if (totalSentiment(filename) >= 2)
+    {
+        stars = 3;
+    }
+    else if (totalSentiment(filename) >= -2)
+    {
+        stars = 2;
+    }
+    else if (totalSentiment(filename) >= -4)
+    {
+        stars = 1;
+    }
 
 
   
     // return number of stars
     return stars; 
   }
+}
 }
