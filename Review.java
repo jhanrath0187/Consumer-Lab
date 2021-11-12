@@ -181,11 +181,13 @@ public class Review {
 
     Scanner reader = new Scanner(new File(filename));
     
-    while (reader.hasNext())
-    {
+
+    while (reader.hasNext()){
+
         String word = reader.next();
         double Val = sentimentVal(word);
         sentimentTotal+=Val;
+
     }
 
     // loop through the file contents 
