@@ -244,35 +244,35 @@ public class Review {
   
 }
 
-public static String fakeReview(String filename) 
+public static String fakeReview(String filename) // replaces words with "*" in front of them with positive or negative adjectives found in the files. 
   {
-      String review = textToString(filename);
+      textToString(filename); //converts file to string
       String fake = "";
-      for (int i = 0; i<review.length()-1; i++)
+      for (int i = 0; i<filename.length()-1; i++) // will increase one until it reaches the end of the file
       {
-         if(review.substring(i, i+1).equals("*"))
+         if(filename.substring(i, i+1).equals("*")) //if a character equals * 
       {
-        i++;
-        String replace = "";
-        boolean word = true;
-        while(word) 
+        String replace = ""; 
+        boolean word = true; // then word is true and will be used for the while statement. 
+        i++; //will go to the next character
+        while(word) // while the the substring is "*"
         {
-          replace += review.substring(i, i+1);
-          i++;
-          if(review.substring(i, i+1).equals(" "))
+          replace += filename.substring(i, i+1); // "" + the next character
+          i++; // moves to the next character
+          if(filename.substring(i, i+1).equals(" ")) // if the substring is a space
           {
-            word = false;
+            word = false; //then word is false and the while loop will stop running. 
           }
         }
-        replace = randomAdjective() + " ";
-        fake += replace;
+        replace = randomAdjective() + " "; //replace will then be set equal to the random adjective
+        fake += replace; // "" = the random adjective
       }
       else
       {
-        fake += review.substring(i, i+1);
+        fake += filename.substring(i, i+1); //if the substring does not equal "*" then "" + the character
       }
     }
-    return fake; 
+    return fake; // will return either the character it was before or the adjective in the review before will be replaced.  
          
       }
     }
