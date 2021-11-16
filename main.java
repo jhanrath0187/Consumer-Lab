@@ -21,6 +21,9 @@ public class main
         System.out.println(value);
         int star = rev.starRating("26WestReview.txt");
         System.out.println(star);
+        String fake = rev.fakeReview("simpleReview.txt");
+        System.out.println(fake);
+        
         
         
     }

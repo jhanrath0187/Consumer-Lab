@@ -241,5 +241,49 @@ public class Review {
     // return number of stars
     return stars; 
   }
+  
 }
-}
+public static String fakeReview(String filename) 
+  {
+      String review = textToString(filename);
+      String fake = "";
+      for (int i = 0; i<review.length()-1; i++)
+      {
+         if(review.substring(i, i+1).equals("*"))
+      {
+        i++;
+        String replace = "";
+        boolean word = true;
+        while(word) 
+        {
+          replace += review.substring(i, i+1);
+          i++;
+          if(review.substring(i, i+1).equals(" "))
+          {
+            word = false;
+          }
+        }
+        replace = randomAdjective() + " ";
+        fake += replace;
+      }
+      else
+      {
+        fake += review.substring(i, i+1);
+      }
+    }
+    return fake; 
+         
+      }
+    }
+
+    
+
+      
+
+    
+      
+    
+    
+  
+  
+
