@@ -246,20 +246,20 @@ public class Review {
 
 public static String fakeReview(String filename) // replaces words with "*" in front of them with positive or negative adjectives found in the files. 
   {
-      textToString(filename); //converts file to string
+      String file = textToString(filename); //converts file to string
       String fake = "";
-      for (int i = 0; i<filename.length()-1; i++) // will increase one until it reaches the end of the file
+      for (int i = 0; i<file.length()-1; i++) // will increase one until it reaches the end of the file
       {
-         if(filename.substring(i, i+1).equals("*")) //if a character equals * 
+         if(file.substring(i, i+1).equals("*")) //if a character equals * 
       {
         String replace = ""; 
         boolean word = true; // then word is true and will be used for the while statement. 
         i++; //will go to the next character
         while(word) // while the the substring is "*"
         {
-          replace += filename.substring(i, i+1); // "" + the next character
+          replace += file.substring(i, i+1); // "" + the next character
           i++; // moves to the next character
-          if(filename.substring(i, i+1).equals(" ")) // if the substring is a space
+          if(file.substring(i, i+1).equals(" ")) // if the substring is a space
           {
             word = false; //then word is false and the while loop will stop running. 
           }
@@ -269,10 +269,52 @@ public static String fakeReview(String filename) // replaces words with "*" in f
       }
       else
       {
-        fake += filename.substring(i, i+1); //if the substring does not equal "*" then "" + the character
+        fake += file.substring(i, i+1); //if the substring does not equal "*" then "" + the character
       }
     }
     return fake; // will return either the character it was before or the adjective in the review before will be replaced.  
          
       }
+      public static String fakeReview2(String filename) // will replace a word with "*" in front of it with either a positive adjective or negative adjective.
+      {
+          String file = textToString(filename);
+          String fake = "";
+          for (int i = 0; i<file.length()-1; i++) // will increase one until it reaches the end of the file
+      {
+         if(file.substring(i, i+1).equals("*")) //if a character equals * 
+      {
+        String replace = ""; 
+        boolean word = true; // then word is true and will be used for the while statement. 
+        i++; //will go to the next character
+        while(word) // while the the substring is "*"
+        {
+          replace += file.substring(i, i+1); // "" + the next character
+          i++; // moves to the next character
+          if(file.substring(i, i+1).equals(" ")) // if the substring is a space
+          {
+            word = false; //then word is false and the while loop will stop running. 
+          }
+        }
+          if (sentimentVal(replace) > 0) // if the sentiment value is greater than 0 then it will replace with a positive adjective
+          {
+              replace = randomPositiveAdj() + " ";
+          }
+          else if (sentimentVal(replace) < 0) //if the sentiment value is less than 0 then it will replace with a negative adjective 
+          {
+              replace = randomNegativeAdj() + " "; 
+          }
+          else // if the sentiment value is 0 then it will replace with a random adjective
+          {
+              replace = randomAdjective() + " "; 
+          }
+          fake += replace; 
+      } 
+      else
+      {
+        fake += file.substring(i, i+1); //if the substring does not equal "*" then "" + the character
+      }
+      
     }
+    return fake;
+}
+}
