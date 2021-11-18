@@ -20,16 +20,16 @@ public class main
         Review rev = new Review();
         
         double value = rev.totalSentiment("simpleReview.txt");    
-        System.out.println(value);
+        System.out.println("The total sentiment value is "+value);
         
         int star = rev.starRating("simpleReview.txt");
-        System.out.println(star);
+        System.out.println("The star rating is "+star);
         
         String fake = rev.fakeReview("simpleReview.txt");
-        System.out.println(fake);
+        System.out.println("The edited review is "+fake);
         
         String fake2 = rev.fakeReview2("simpleReview.txt");
-        System.out.println(fake2);
+        System.out.println("The edited review is "+fake2);
         
         
         
