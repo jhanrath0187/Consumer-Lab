@@ -26,10 +26,10 @@ public class main
         System.out.println("The star rating is "+star);
         
         String fake = rev.fakeReview("simpleReview.txt");
-        System.out.println("The edited review is "+fake);
+        System.out.println("The edited review is: "+fake);
         
         String fake2 = rev.fakeReview2("simpleReview.txt");
-        System.out.println("The edited review is "+fake2);
+        System.out.println("Another edited review is: "+fake2);
         
         
         
